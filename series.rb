@@ -6,18 +6,17 @@ class Series
   end
 
   def slices(group_size)
-    result = []
-    group  = []
-    index  = 0                  
-    @num_to_slice.each_char do |x|
-      x = x.to_i
-      group_result = []
-      group_result << x 
-      result << group_result
-    end
-  result
+    result  = []
+    group   = []
+    index   = 0     
+    cluster = 0      
+    each_char  = @num_to_slice.chars
+    each_numb  = each_char.map(&:to_i)
+    each_group = each_numb.each_cons(group_size)
+    grouped    = each_group.to_a
+  grouped
   end
 
 end
-# a = Series.new('3579')
-# a.slices(1)
+a = Series.new('3579')
+a.slices(2)
