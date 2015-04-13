@@ -6,20 +6,18 @@ class Series
   end
 
   def slices(group_size)
-    
-    # Make the answer an array
-    # The groups of numbers will also be arrays
-    # The result is a 2D array.
-    
-    # Take the input string 'number'
-    # Split up the string into each chars.
-    # Turn it into a fixnum .to_i
-    # Put it in a array
-    # Shovel the result into the answer array.
-
-    [[0],[1], [2], [3], [4]]
+    result = []
+    group  = []
+    index  = 0                  
+    @num_to_slice.each_char do |x|
+      x = x.to_i
+      group_result = []
+      group_result << x 
+      result << group_result
+    end
+  result
   end
 
 end
-a = Series.new('1234')
-a.slices(1)
+# a = Series.new('3579')
+# a.slices(1)
